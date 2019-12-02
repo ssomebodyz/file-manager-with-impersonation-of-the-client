@@ -1,0 +1,18 @@
+[
+	uuid(40d8e656-fe6f-11e9-aad5-362b9e155667),
+	version(1.0),
+
+    implicit_handle(handle_t InterfaceRPCbind)
+]
+interface InterfaceRPC
+{
+	void Output([in, string] unsigned char* szOutput);
+	int Delete_File_on_the_server([in, string] unsigned char* path);
+	int Create_File_on_the_server([in, string] unsigned char* path, [in, string] unsigned char* content);
+	int Copy_Fileon_to_the_server([in, string] unsigned char* file_name, [in, string] unsigned char* path_server, [in, size_is(*size)] unsigned char* content, [in]int *size);
+	int Get_Size_of_file([in, string] unsigned char* path_file, [out] int *size);
+	int Download_File_from_the_server([in, string] unsigned char* path_server, [in, out, size_is(*size)] unsigned char* content, [in] int *size);
+	int Impersonation([in, string] unsigned char *user, [in, string] unsigned char *password);
+	int Log_out();
+}
+
